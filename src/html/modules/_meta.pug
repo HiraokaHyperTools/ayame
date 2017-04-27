@@ -1,0 +1,41 @@
+meta(charset="UTF-8")
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+meta(name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0")
+meta(name="format-detection" content="telephone=no,address=no,email=no")
+meta(name="apple-mobile-web-app-capable" content="yes")
+if pageTitle && (pageTitle != 'Home')
+  title= pageTitle + ' | ' + settings.name
+  meta(property="og:title" content=`${pageTitle} | ${settings.name}`)
+  meta(name="twitter:title" content=`${pageTitle} | ${settings.name}`)
+else
+  title= settings.name
+  meta(property="og:title" content=`${settings.name}`)
+  meta(name="twitter:title" content=`${settings.name}`)
+meta(name="description" content=`${pageDescription||settings.description}`)
+//- OGP
+//- ============================================================
+meta(property="og:type" content=`${pageOgpType||settings.defaultOgpType}`)
+meta(property="og:image" content=`${pageOgpImage||settings.defaultOgpImage}`)
+meta(property="og:url" content=`${settings.rootUrl + pageUrl}`)
+meta(property="og:description" content=`${pageDescription||settings.description}`)
+meta(property="og:site_name" content=`${settings.name}`)
+meta(property="og:locale" content=`${settings.defaultLang}`)
+
+//- OGP Facebook
+//- / meta(property="fb:app_id" content="XXXXXXXX")
+
+//- OGP Twitter Cards
+meta(name="twitter:card" content="summary_large_image")
+meta(name='twitter:site', content='@MITLicense')
+meta(name='twitter:creator', content='@MITLicense')
+meta(name="twitter:description" content=`${pageDescription||settings.description}`)
+meta(name="twitter:image" content=`${pageOgpImage||settings.defaultOgpImage}`)
+link(rel="canonical" href=`${pageUrl}`)
+//- favicon and touch icon
+//- ============================================================
+link(rel="apple-touch-icon" href=`${settings.touchIcon}`)
+//- img/brand.png
+link(rel="shortcut icon" href='`${settings.favicon}`')
+//if lt IE 9
+  script(src='//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')
+  script(src='//oss.maxcdn.com/respond/1.4.2/respond.min.js')

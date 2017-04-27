@@ -1,0 +1,8 @@
+block js
+  if useCDN
+    script(src=`${settings.cdn.jquery.js}`)
+    script(src="./js/bundle.js")
+    script(src=`${settings.cdn.bootstrap.js}`, integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")
+  else
+    script(src="./js/bundle.js")
+    script(src="./js/bootstrap.js")

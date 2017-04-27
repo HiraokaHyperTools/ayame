@@ -1,0 +1,72 @@
+// ============================================================
+// Override by your customs
+// ============================================================
+// all settings written are just examples
+// you can use variables and mixins from Ayame and bootstrap
+// please over-write as you like
+// ============================================================
+#md-title
+  .page-header
+    padding-bottom: 0
+    margin: 0
+    border-bottom: none
+  h1
+    font-size: $font-size-x-large
+    font-weight: bold
+    display: flex
+    align-items: center
+    text-align: center
+    justify-content: center
+    vertical-rhythm: true
+    rhythmical-margin: 0 0 1 0
+    &:before,
+    &:after
+      content: ''
+      flex-grow: 1
+      height: 3px
+      background: $gray-light
+      min-width: 1rem
+      display: inline-block
+      vertical-align: middle
+     &:before
+      margin-right: 1rem
+     &:after
+      margin-left: 1rem
+#md-content
+  p
+    margin-left: 1rem
+  h2
+    font-size: $font-size-large
+    border-left: 0.25rem solid $gray-light
+    padding-left: 0.25rem
+    background-color: darken($brand-primary, 66%)
+    @media only screen and (min-width : $screen-tablet)
+      border-left: 0.5rem solid $gray-light
+      padding-left: 0.5rem
+  h3
+    font-size: $font-size-large
+    border-bottom: 2px solid $gray-light
+    border-left: 0.125rem solid $gray-light
+    padding-left: 0.25rem
+    @media only screen and (min-width : $screen-tablet)
+      border-left: 0.25rem solid $gray-light
+      padding-left: 0.5rem
+  h4
+    font-size: $font-size-large
+    border-left: 0.125rem solid $gray-light
+    padding-left: 0.25rem
+    @media only screen and (min-width : $screen-tablet)
+      border-left: 0.25rem solid $gray-light
+      padding-left: 0.5rem
+  h5
+    font-size: $font-size-base
+    border-left: 0.125rem solid $gray-light
+    padding-left: 0.25rem
+    @media only screen and (min-width : $screen-tablet)
+      border-left: 0.25rem solid $gray-light
+      padding-left: 0.5rem
+  h6
+    font-size: $font-size-base
+    padding-left: 0.375rem
+    @media only screen and (min-width : $screen-tablet)
+      padding-left: 0.75rem

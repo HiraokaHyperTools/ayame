@@ -1,0 +1,982 @@
+extends /layouts/_base
+//- ============================================================
+block append variables
+  //- Required
+  - var pageTitle= "Japanese Demo";
+  //- Optional
+  - var pageDescription= "";
+  - var pageLang= "";
+  - var pageOgpImage= "";
+  - var pageOgpType= "";
+  //- Not modified
+  - var pageUrl= "/bootstrap-ja.html";
+//- ============================================================
+block append css
+  style(type='text/css').
+    body { padding-top: 80px; }
+    @media ( min-width: 768px ) {
+    #banner {
+    min-height: 300px;
+    border-bottom: none;
+    }
+    .bs-docs-section {
+    margin-top: 8em;
+    }
+    .bs-component {
+    position: relative;
+    }
+    .bs-component .modal {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    z-index: 1;
+    display: block;
+    }
+    .bs-component .modal-dialog {
+    width: 90%;
+    }
+    .bs-component .popover {
+    position: relative;
+    display: inline-block;
+    width: 220px;
+    margin: 20px;
+    }
+    .nav-tabs {
+    margin-bottom: 15px;
+    }
+    .progress {
+    margin-bottom: 10px;
+    }
+    }
+block append js
+  script(type='text/javascript').
+    $('.bs-component [data-toggle="popover"]').popover();
+    $('.bs-component [data-toggle="tooltip"]').tooltip();
+    $('#anti-yu-gothic-button').on('click', function() {
+    if ( $('body').hasClass('i-love-yu') ) {
+    $('body').removeClass('i-love-yu');
+    $(this).text('游ゴシックを有効にする').removeClass('btn-primary').addClass('btn-danger');
+    $("#anti-yu-gothic-message").html('現在デモページは游ゴシックの指定が<span class="text-primary">無効</span>になっています。');
+    }
+    else {
+    $('body').addClass('i-love-yu');
+    $(this).text('游ゴシックを無効にする').removeClass('btn-danger').addClass('btn-primary');
+    $("#anti-yu-gothic-message").html('現在デモページは游ゴシックの指定が<span class="text-danger">有効</span>になっています。');
+    }
+    });
+//- ============================================================
+block content
+  .container
+    #banner.page-header
+      .row
+        .col-lg-8.col-md-7.col-sm-6
+          h1 Ayame
+          p.lead 日本語も美しく表示できるBootstrapテーマ
+        .col-lg-4.col-md-5.col-sm-6
+          aside.panel.panel-default
+            .panel-heading
+              h4.panel-title 游ゴシックの有効・無効切り替え
+            .panel-body
+              p
+                | AyameではローカルにNotoSans(≒源ノ角ゴシック)があれば優先的に表示します。
+                br
+                | 游ゴシックを優先的に使用したい場合は、
+                code .i-love-yu
+                | を
+                code &lt;body&gt;
+                | などに指定することで游ゴシック表示にすることができます。
+              p#anti-yu-gothic-message
+                | 現在デモページは游ゴシックの指定が
+                span.text-primary 無効
+                | になっています。
+              div
+                button#anti-yu-gothic-button.btn.btn-danger.btn-block 游ゴシックを有効にする
+    //
+      Navbar
+      ==================================================
+    .bs-docs-section.clearfix
+      .row
+        .col-lg-12
+          .page-header
+            h1#navbar Navbar
+          .bs-component
+            nav.navbar.navbar-default
+              .container-fluid
+                .navbar-header
+                  button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                  a.navbar-brand(href='#') Brand
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                  ul.nav.navbar-nav
+                    li.active
+                      a(href='#')
+                        | Link
+                        span.sr-only (current)
+                    li
+                      a(href='#') Link
+                    li.dropdown
+                      a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                        | Dropdown
+                        span.caret
+                      ul.dropdown-menu(role='menu')
+                        li
+                          a(href='#') 力丸（りきまる）
+                        li
+                          a(href='#') 東紫雲斎（あずま しうんさい）
+                        li
+                          a(href='#') 蝉丸（せみまる）
+                        li.divider
+                        li
+                          a(href='#') 郷田松之信（ごうだ まつのしん）
+                        li
+                          a(href='#') 関谷直忠（せきや なおただ）
+                        li
+                          a(href='#') 菊姫（きくひめ）
+                        li.divider
+                        li
+                          a(href='#') 黒塗りの重蔵（くろぬりのじゅうぞう）
+                        li
+                          a(href='#') 双葉（ふたば）
+                        li
+                          a(href='#') 単葉（ひとは）
+                  form.navbar-form.navbar-left(role='search')
+                    .form-group
+                      input.form-control(type='text', placeholder='Search')
+                    button.btn.btn-default(type='submit') 検索
+                  ul.nav.navbar-nav.navbar-right
+                    li
+                      a(href='#') Link
+          .bs-component
+            nav.navbar.navbar-inverse
+              .container-fluid
+                .navbar-header
+                  button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-2')
+                    span.sr-only Toggle navigation
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                  a.navbar-brand(href='#') Brand
+                #bs-example-navbar-collapse-2.collapse.navbar-collapse
+                  ul.nav.navbar-nav
+                    li.active
+                      a(href='#')
+                        | Link
+                        span.sr-only (current)
+                    li
+                      a(href='#') Link
+                    li.dropdown
+                      a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                        | Dropdown
+                        span.caret
+                      ul.dropdown-menu(role='menu')
+                        li
+                          a(href='#') 力丸（りきまる）
+                        li
+                          a(href='#') 東紫雲斎（あずま しうんさい）
+                        li
+                          a(href='#') 蝉丸（せみまる）
+                        li.divider
+                        li
+                          a(href='#') 郷田松之信（ごうだ まつのしん）
+                        li
+                          a(href='#') 関谷直忠（せきや なおただ）
+                        li
+                          a(href='#') 菊姫（きくひめ）
+                        li.divider
+                        li
+                          a(href='#') 黒塗りの重蔵（くろぬりのじゅうぞう）
+                        li
+                          a(href='#') 双葉（ふたば）
+                        li
+                          a(href='#') 単葉（ひとは）
+                  form.navbar-form.navbar-left(role='search')
+                    .form-group
+                      input.form-control(type='text', placeholder='Search')
+                    button.btn.btn-default(type='submit') 検索
+                  ul.nav.navbar-nav.navbar-right
+                    li
+                      a(href='#') Link
+          // /example
+    //
+      Buttons
+      ==================================================
+    .bs-docs-section
+      .page-header
+        .row
+          .col-lg-12
+            h1#buttons Buttons
+      .row
+        .col-lg-6
+          p.bs-component
+            a.btn.btn-default(href='#') Default
+            a.btn.btn-primary(href='#') Primary
+            a.btn.btn-success(href='#') Success
+            a.btn.btn-info(href='#') Info
+            a.btn.btn-warning(href='#') Warning
+            a.btn.btn-danger(href='#') Danger
+            a.btn.btn-link(href='#') Link
+          p.bs-component
+            a.btn.btn-default.disabled(href='#') Default
+            a.btn.btn-primary.disabled(href='#') Primary
+            a.btn.btn-success.disabled(href='#') Success
+            a.btn.btn-info.disabled(href='#') Info
+            a.btn.btn-warning.disabled(href='#') Warning
+            a.btn.btn-danger.disabled(href='#') Danger
+            a.btn.btn-link.disabled(href='#') Link
+          div(style='margin-bottom: 15px;')
+            .btn-toolbar.bs-component(style='margin: 0;')
+              .btn-group
+                a.btn.btn-default(href='#') Default
+                a.btn.btn-default.dropdown-toggle(href='#', data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                a.btn.btn-primary(href='#') Primary
+                a.btn.btn-primary.dropdown-toggle(href='#', data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                a.btn.btn-success(href='#') Success
+                a.btn.btn-success.dropdown-toggle(href='#', data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                a.btn.btn-info(href='#') Info
+                a.btn.btn-info.dropdown-toggle(href='#', data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+              .btn-group
+                a.btn.btn-warning(href='#') Warning
+                a.btn.btn-warning.dropdown-toggle(href='#', data-toggle='dropdown')
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+          p.bs-component
+            a.btn.btn-primary.btn-lg(href='#') Large button
+            a.btn.btn-primary(href='#') Default button
+            a.btn.btn-primary.btn-sm(href='#') Small button
+            a.btn.btn-primary.btn-xs(href='#') Mini button
+        .col-lg-6
+          p.bs-component
+            a.btn.btn-default.btn-lg.btn-block(href='#') Block level button
+          .bs-component(style='margin-bottom: 15px;')
+            .btn-group.btn-group-justified
+              a.btn.btn-default(href='#') Left
+              a.btn.btn-default(href='#') Middle
+              a.btn.btn-default(href='#') Right
+          .bs-component(style='margin-bottom: 15px;')
+            .btn-toolbar
+              .btn-group
+                a.btn.btn-default(href='#') 1
+                a.btn.btn-default(href='#') 2
+                a.btn.btn-default(href='#') 3
+                a.btn.btn-default(href='#') 4
+              .btn-group
+                a.btn.btn-default(href='#') 5
+                a.btn.btn-default(href='#') 6
+                a.btn.btn-default(href='#') 7
+              .btn-group
+                a.btn.btn-default(href='#') 8
+                .btn-group
+                  a.btn.btn-default.dropdown-toggle(href='#', data-toggle='dropdown')
+                    | Dropdown
+                    span.caret
+                  ul.dropdown-menu
+                    li
+                      a(href='#') Dropdown link
+                    li
+                      a(href='#') Dropdown link
+                    li
+                      a(href='#') Dropdown link
+          .bs-component
+            .btn-group-vertical
+              a.btn.btn-default(href='#') Button
+              a.btn.btn-default(href='#') Button
+              a.btn.btn-default(href='#') Button
+              a.btn.btn-default(href='#') Button
+    //
+      Typography
+      ==================================================
+    .bs-docs-section
+      .row
+        .col-lg-12
+          .page-header
+            h1#type Typography
+      // Headings
+      .row
+        .col-lg-4
+          .bs-component
+            h1 見出し 1
+            h2 見出し 2
+            h3 見出し 3
+            h4 見出し 4
+            h5 見出し 5
+            h6 見出し 6
+            p.lead 色は匂へど散りぬるを 我が世誰そ常ならむ。
+        .col-lg-4
+          .bs-component
+            h2 Example body text
+            p
+              | グスコーブドリは、
+              a(href='#') イーハトーヴ
+              | の大きな森のなかに生まれました。おとうさんは、グスコーナドリという名高い木こりで、どんな大きな木でも、まるで赤ん坊を寝かしつけるようにわけなく切ってしまう人でした。
+            p
+              small テキストのこの行は、細字として扱われることを意味します。
+            p
+              | テキストの次のコードは、
+              strong 太字のテキストとしてレンダリングされます
+              | 。
+            p
+              | テキストの次のコードは、
+              em 斜体のテキストとしてレンダリングされます
+              | 。
+            p
+              abbr(title='Nippon Telegraph and Telephone Corporation') NTT
+              | の日本語名称は「日本電信電話」です。
+        .col-lg-4
+          .bs-component
+            h2 Emphasis classes
+            p.text-muted 春はあけぼの。やうやう白くなりゆく山際、少しあかりて、紫だちたる雲の細くたなびきたる。
+            p.text-primary 夏は夜。月の頃はさらなり。闇もなほ、蛍のおほく飛びちがひたる。
+            p.text-warning また、ただ一つ二つなど、ほのかにうち光りて行くもをかし。雨など降るもをかし。
+            p.text-danger 秋は夕暮れ。夕日のさして山の端いと近うなりたるに、烏の、寝どころへ行くとて、三つ四つ、二つ三つなど飛び急ぐさへあはれなり。
+            p.text-success まいて、雁などのつらねたるが、いと小さく見ゆるは、いとをかし。
+            p.text-info 日入り果てて、風の音、虫の音など、はた言ふべきにあらず。
+      // Blockquotes
+      .row
+        .col-lg-12
+          h2#type-blockquotes Blockquotes
+      .row
+        .col-lg-6
+          .bs-component
+            blockquote
+              p
+                | BootstrapはWebサイトやWebアプリケーションを作成するフリーソフトウェアツール集である。タイポグラフィ、フォーム、ボタン、ナビゲーション、その他構成要素やJavaScript用拡張などがHTML及びCSSベースのデザインテンプレートとして用意されている。
+              small
+                | 出典
+                cite(title='Bootstrap - Wikipedia') Bootstrap - Wikipedia
+        .col-lg-6
+          .bs-component
+            blockquote.pull-right
+              p
+                | BootstrapはWebサイトやWebアプリケーションを作成するフリーソフトウェアツール集である。タイポグラフィ、フォーム、ボタン、ナビゲーション、その他構成要素やJavaScript用拡張などがHTML及びCSSベースのデザインテンプレートとして用意されている。
+              small
+                | 出典
+                cite(title='Bootstrap - Wikipedia') Bootstrap - Wikipedia
+    //
+      Tables
+      ==================================================
+    .bs-docs-section
+      .row
+        .col-lg-12
+          .page-header
+            h1#tables Tables
+          .bs-component
+            table.table.table-striped.table-hover
+              thead
+                tr
+                  th #
+                  th カラムのタイトル
+                  th カラムのタイトル
+                  th カラムのタイトル
+              tbody
+                tr
+                  td 1
+                  td カラムの内容
+                  td カラムの内容
+                  td カラムの内容
+                tr
+                  td 2
+                  td カラムの内容
+                  td カラムの内容
+                  td カラムの内容
+                tr.info
+                  td 3
+                  td カラムの内容
+                  td カラムの内容
+                  td カラムの内容
+                tr.success
+                  td 4
+                  td カラムの内容
+                  td カラムの内容
+                  td カラムの内容
+                tr.danger
+                  td 5
+                  td カラムの内容
+                  td カラムの内容
+                  td カラムの内容
+                tr.warning
+                  td 6
+                  td カラムの内容
+                  td カラムの内容
+                  td カラムの内容
+                tr.active
+                  td 7
+                  td カラムの内容
+                  td カラムの内容
+                  td カラムの内容
+          // /example
+    //
+      Forms
+      ==================================================
+    .bs-docs-section
+      .row
+        .col-lg-12
+          .page-header
+            h1#forms Forms
+      .row
+        .col-lg-6
+          .well.bs-component
+            form.form-horizontal
+              fieldset
+                legend 説明
+                .form-group
+                  label.col-lg-2.control-label(for='inputEmail') Email
+                  .col-lg-10
+                    input#inputEmail.form-control(type='text', placeholder='Email')
+                .form-group
+                  label.col-lg-2.control-label(for='inputPassword') Password
+                  .col-lg-10
+                    input#inputPassword.form-control(type='password', placeholder='Password')
+                    .checkbox
+                      label
+                        input(type='checkbox')
+                        |  Checkbox
+                .form-group
+                  label.col-lg-2.control-label(for='textArea') Textarea
+                  .col-lg-10
+                    textarea#textArea.form-control(rows='3')
+                    span.help-block ヘルプテキストは長くすることで1行を超えて分割されるようになります。
+                .form-group
+                  label.col-lg-2.control-label Radios
+                  .col-lg-10
+                    .radio
+                      label
+                        input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
+                        |                       こっち
+                    .radio
+                      label
+                        input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
+                        |                       あっち
+                .form-group
+                  label.col-lg-2.control-label(for='select') Selects
+                  .col-lg-10
+                    select#select.form-control
+                      option 1
+                      option 2
+                      option 3
+                      option 4
+                      option 5
+                    br
+                    select.form-control(multiple='')
+                      option 1
+                      option 2
+                      option 3
+                      option 4
+                      option 5
+                .form-group
+                  .col-lg-10.col-lg-offset-2
+                    button.btn.btn-default(type='reset') キャンセル
+                    button.btn.btn-primary(type='submit') 送信
+        .col-lg-4.col-lg-offset-1
+          form.bs-component
+            .form-group
+              label.control-label(for='focusedInput') Focused input
+              input#focusedInput.form-control(type='text', value='This is focused...')
+            .form-group
+              label.control-label(for='disabledInput') Disabled input
+              input#disabledInput.form-control(type='text', placeholder='Disabled input here...', disabled='')
+            .form-group.has-warning
+              label.control-label(for='inputWarning') Input warning
+              input#inputWarning.form-control(type='text')
+            .form-group.has-error
+              label.control-label(for='inputError') Input error
+              input#inputError.form-control(type='text')
+            .form-group.has-success
+              label.control-label(for='inputSuccess') Input success
+              input#inputSuccess.form-control(type='text')
+            .form-group
+              label.control-label(for='inputLarge') Large input
+              input#inputLarge.form-control.input-lg(type='text')
+            .form-group
+              label.control-label(for='inputDefault') Default input
+              input#inputDefault.form-control(type='text')
+            .form-group
+              label.control-label(for='inputSmall') Small input
+              input#inputSmall.form-control.input-sm(type='text')
+            .form-group
+              label.control-label Input addons
+              .input-group
+                span.input-group-addon $
+                input.form-control(type='text')
+                span.input-group-btn
+                  button.btn.btn-default(type='button') Button
+    //
+      Navs
+      ==================================================
+    .bs-docs-section
+      .row
+        .col-lg-12
+          .page-header
+            h1#nav Navs
+      .row
+        .col-lg-4
+          h2#nav-tabs Tabs
+          .bs-component
+            ul.nav.nav-tabs
+              li.active
+                a(href='#home', data-toggle='tab') 坊っちゃん
+              li
+                a(href='#profile', data-toggle='tab') 愚見数則
+              li.disabled
+                a Disabled
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#')
+                  | 宮沢賢治
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#dropdown1', data-toggle='tab') 雨ニモマケズ
+                  li.divider
+                  li
+                    a(href='#dropdown2', data-toggle='tab') 春と修羅(序)
+            #myTabContent.tab-content
+              #home.tab-pane.fade.active.in
+                p
+                  | 親讓りの無鐵砲で小供の時から損ばかりして居る。小學校に居る時分學校の二階から飛び降りて一週間程腰を拔かした事がある。なぜそんな無闇（むやみ）をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出して居たら、同級生の一人が冗談に、いくら威張つても、そこから飛び降りる事は出來まい。弱虫やーい。と囃（はや）したからである。小使（こづかひ）に負ぶさつて歸つて來た時、おやぢが大きな眼をして二階位（にかいぐらゐ）から飛び降りて腰を拔かす奴があるかと云つたから、此次（このつぎ）は拔かさずに飛んで見せますと答へた。
+              #profile.tab-pane.fade
+                p
+                  | 昔しの書生は、笈を負ひて四方に遊歴し、此人ならばと思ふ先生の許に落付く、故に先生を敬ふ事、父兄に過ぎたり、先生も亦弟子に対する事、真の子の如し、是でなくては真の教育といふ事は出来ぬなり、今の書生は学校を旅屋の如く思ふ、金を出して暫らく逗留するに過ぎず、厭になればすぐに宿を移す、かゝる生徒に対する校長は、宿屋の主人の如く、教師は番頭丁稚なり、主人たる校長すら、時には御客の機嫌を取らねばならず、況んや番頭丁稚をや、薫陶所か解雇されざるを以て幸福と思ふ位なり、生徒の増長し教員の下落するは当前の事なり。
+              #dropdown1.tab-pane.fade
+                p
+                  | 雨ニモマケズ 風ニモマケズ 雪ニモ夏ノ暑サニモマケヌ 丈夫ナカラダヲモチ 慾ハナク 決シテ瞋ラズ イツモシズカニワラッテイル 一日ニ玄米四合ト 味噌ト少シノ野菜ヲタベ アラユルコトヲ ジブンヲカンジョウニ入レズニ ヨクミキキシワカリ ソシテワスレズ
+              #dropdown2.tab-pane.fade
+                p
+                  | わたくしといふ現象は 假定された有機交流電燈の ひとつの青い照明です （あらゆる透明な幽霊の複合体） 風景やみんなといっしょに せはしくせはしく明滅しながら いかにもたしかにともりつづける 因果交流電燈の ひとつの青い照明です （ひかりはたもち、その電燈は失はれ）
+        .col-lg-4
+          h2#nav-pills Pills
+          .bs-component
+            ul.nav.nav-pills
+              li.active
+                a(href='#') Home
+              li
+                a(href='#') Profile
+              li.disabled
+                a(href='#') Disabled
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#')
+                  | Dropdown
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+          br
+          .bs-component
+            ul.nav.nav-pills.nav-stacked
+              li.active
+                a(href='#') Home
+              li
+                a(href='#') Profile
+              li.disabled
+                a(href='#') Disabled
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#')
+                  | Dropdown
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href='#') Action
+                  li
+                    a(href='#') Another action
+                  li
+                    a(href='#') Something else here
+                  li.divider
+                  li
+                    a(href='#') Separated link
+        .col-lg-4
+          h2#nav-breadcrumbs Breadcrumbs
+          .bs-component
+            ul.breadcrumb
+              li.active Home
+            ul.breadcrumb
+              li
+                a(href='#') Home
+              li.active Library
+            ul.breadcrumb
+              li
+                a(href='#') Home
+              li
+                a(href='#') Library
+              li.active Data
+      .row
+        .col-lg-4
+          h2#pagination Pagination
+          .bs-component
+            ul.pagination
+              li.disabled
+                a(href='#') «
+              li.active
+                a(href='#') 1
+              li
+                a(href='#') 2
+              li
+                a(href='#') 3
+              li
+                a(href='#') 4
+              li
+                a(href='#') 5
+              li
+                a(href='#') »
+            ul.pagination.pagination-lg
+              li.disabled
+                a(href='#') «
+              li.active
+                a(href='#') 1
+              li
+                a(href='#') 2
+              li
+                a(href='#') 3
+              li
+                a(href='#') »
+            ul.pagination.pagination-sm
+              li.disabled
+                a(href='#') «
+              li.active
+                a(href='#') 1
+              li
+                a(href='#') 2
+              li
+                a(href='#') 3
+              li
+                a(href='#') 4
+              li
+                a(href='#') 5
+              li
+                a(href='#') »
+        .col-lg-4
+          h2#pager Pager
+          .bs-component
+            ul.pager
+              li
+                a(href='#') Previous
+              li
+                a(href='#') Next
+            ul.pager
+              li.previous.disabled
+                a(href='#') ← Older
+              li.next
+                a(href='#') Newer →
+        .col-lg-4
+    //
+      Indicators
+      ==================================================
+    .bs-docs-section
+      .row
+        .col-lg-12
+          .page-header
+            h1#indicators Indicators
+      .row
+        .col-lg-12
+          h2 Alerts
+          .bs-component
+            .alert.alert-dismissible.alert-warning
+              button.close(type='button', data-dismiss='alert') ×
+              h4 Warning!
+              p
+                | 要求された処理は正常に完了できませんでした。このエラーについての詳細は
+                a.alert-link(href='#') こちらのドキュメントを参照してください
+                | .
+      .row
+        .col-lg-4
+          .bs-component
+            .alert.alert-dismissible.alert-danger
+              button.close(type='button', data-dismiss='alert') ×
+              strong エラー
+              a.alert-link(href='#') タイトルを入力し
+              | ，再度投稿を行って下さい。
+        .col-lg-4
+          .bs-component
+            .alert.alert-dismissible.alert-success
+              button.close(type='button', data-dismiss='alert') ×
+              strong 完了
+              |  記事「
+              a.alert-link(href='#') 虎の巻について
+              | 」を公開しました。
+        .col-lg-4
+          .bs-component
+            .alert.alert-dismissible.alert-info
+              button.close(type='button', data-dismiss='alert') ×
+              strong Tips
+              |  この
+              a.alert-link(href='#') アラートは気にする必要がありますが
+              | , そんなに重要ではありません。
+      .row
+        .col-lg-4
+          h2 Labels
+          .bs-component(style='margin-bottom: 40px;')
+            span.label.label-default Default
+            span.label.label-primary Primary
+            span.label.label-success Success
+            span.label.label-warning Warning
+            span.label.label-danger Danger
+            span.label.label-info Info
+        .col-lg-4
+          h2 Badges
+          .bs-component
+            ul.nav.nav-pills
+              li.active
+                a(href='#')
+                  | Home
+                  span.badge 42
+              li
+                a(href='#')
+                  | Profile
+                  span.badge
+              li
+                a(href='#')
+                  | Messages
+                  span.badge 3
+    //
+      Progress bars
+      ==================================================
+    .bs-docs-section
+      .row
+        .col-lg-12
+          .page-header
+            h1#progress Progress bars
+          h3#progress-basic Basic
+          .bs-component
+            .progress
+              .progress-bar(style='width: 60%;')
+          h3#progress-alternatives Contextual alternatives
+          .bs-component
+            .progress
+              .progress-bar.progress-bar-info(style='width: 20%')
+            .progress
+              .progress-bar.progress-bar-success(style='width: 40%')
+            .progress
+              .progress-bar.progress-bar-warning(style='width: 60%')
+            .progress
+              .progress-bar.progress-bar-danger(style='width: 80%')
+          h3#progress-striped Striped
+          .bs-component
+            .progress.progress-striped
+              .progress-bar.progress-bar-info(style='width: 20%')
+            .progress.progress-striped
+              .progress-bar.progress-bar-success(style='width: 40%')
+            .progress.progress-striped
+              .progress-bar.progress-bar-warning(style='width: 60%')
+            .progress.progress-striped
+              .progress-bar.progress-bar-danger(style='width: 80%')
+          h3#progress-animated Animated
+          .bs-component
+            .progress.progress-striped.active
+              .progress-bar(style='width: 45%')
+          h3#progress-stacked Stacked
+          .bs-component
+            .progress
+              .progress-bar.progress-bar-success(style='width: 35%')
+              .progress-bar.progress-bar-warning(style='width: 20%')
+              .progress-bar.progress-bar-danger(style='width: 10%')
+    //
+      Containers
+      ==================================================
+    .bs-docs-section
+      .row
+        .col-lg-12
+          .page-header
+            h1#container Containers
+          .bs-component
+            .jumbotron
+              h1 方丈記
+              p 行く川のながれは絶えずして、しかも本の水にあらず。よどみに浮ぶうたかたは、かつ消えかつ結びて久しくとゞまることなし。世の中にある人とすみかと、またかくの如し。
+              p
+                a.btn.btn-primary.btn-lg 方丈記について
+      .row
+        .col-lg-12
+          h2 List groups
+      .row
+        .col-lg-4
+          .bs-component
+            ul.list-group
+              li.list-group-item
+                span.badge 14
+                | 鍛錬せよ
+              li.list-group-item
+                span.badge 2
+                | 悪徳商人を成敗せよ
+              li.list-group-item
+                span.badge 1
+                | 密書を運べ
+        .col-lg-4
+          .bs-component
+            .list-group
+              a.list-group-item.active(href='#')
+                | 紅隈（べにぐま）
+              a.list-group-item(href='#')
+                | 紅隈（べにぐま）
+              a.list-group-item(href='#')
+                | 紅隈（べにぐま）
+        .col-lg-4
+          .bs-component
+            .list-group
+              a.list-group-item(href='#')
+                h4.list-group-item-heading 彩女（あやめ）
+                p.list-group-item-text 東忍流の女忍者。僅か十四歳にして忍術皆伝を受けた才女で、伝統や格式に捕われず、独自の技から繰り出される二振りの小太刀で闇の中を艶やかに舞う。
+              a.list-group-item(href='#')
+                h4.list-group-item-heading 凛（りん）
+                p.list-group-item-text 葉隠れの里出身の少女で、幼い頃から忍びの技と知恵を学んできたが、十六のとき里を焼かれ、その首謀者へ復讐するために始末屋となる事を決意する。
+      .row
+        .col-lg-12
+          h2 Panels
+      .row
+        .col-lg-4
+          .bs-component
+            .panel.panel-default
+              .panel-body
+                | 普通のパネル
+            .panel.panel-default
+              .panel-heading パネルの見出し
+              .panel-body
+                | パネルの内容
+            .panel.panel-default
+              .panel-body
+                | パネルの内容
+              .panel-footer パネルのフッター
+        .col-lg-4
+          .bs-component
+            .panel.panel-primary
+              .panel-heading
+                h3.panel-title パネルの見出し(Primary)
+              .panel-body
+                | パネルの内容
+            .panel.panel-success
+              .panel-heading
+                h3.panel-title パネルの見出し(Success)
+              .panel-body
+                | パネルの内容
+            .panel.panel-warning
+              .panel-heading
+                h3.panel-title パネルの見出し(Warning)
+              .panel-body
+                | パネルの内容
+        .col-lg-4
+          .bs-component
+            .panel.panel-danger
+              .panel-heading
+                h3.panel-title パネルの見出し(Danger)
+              .panel-body
+                | パネルの内容
+            .panel.panel-info
+              .panel-heading
+                h3.panel-title パネルの見出し(Info)
+              .panel-body
+                | パネルの内容
+      .row
+        .col-lg-12
+          h2 Wells
+      .row
+        .col-lg-4
+          .bs-component
+            .well
+              | いい感じの枠
+        .col-lg-4
+          .bs-component
+            .well.well-sm
+              | いい感じの枠(小さめ)
+        .col-lg-4
+          .bs-component
+            .well.well-lg
+              | いい感じの枠(大きめ)
+    //
+      Dialogs
+      ==================================================
+    .bs-docs-section
+      .row
+        .col-lg-12
+          .page-header
+            h1#dialogs Dialogs
+      .row
+        .col-lg-6
+          h2 Modals
+          .bs-component
+            .modal
+              .modal-dialog
+                .modal-content
+                  .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                    h4.modal-title タイトル
+                  .modal-body
+                    p サンプルテキスト
+                  .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') 閉じる
+                    button.btn.btn-primary(type='button') 保存
+        .col-lg-6
+          h2 Popovers
+          .bs-component
+            button.btn.btn-default(type='button', data-container='body', data-toggle='popover', data-placement='left', data-content='やうやう白くなりゆく山際、少しあかりて、紫だちたる雲の細くたなびきたる。') Left
+            button.btn.btn-default(type='button', data-container='body', data-toggle='popover', data-placement='top', data-content='やうやう白くなりゆく山際、少しあかりて、紫だちたる雲の細くたなびきたる。') Top
+            button.btn.btn-default(type='button', data-container='body', data-toggle='popover', data-placement='bottom', data-content='やうやう白くなりゆく山際、少しあかりて、紫だちたる雲の細くたなびきたる。') Bottom
+            button.btn.btn-default(type='button', data-container='body', data-toggle='popover', data-placement='right', data-content='やうやう白くなりゆく山際、少しあかりて、紫だちたる雲の細くたなびきたる。') Right
+          h2 Tooltips
+          .bs-component
+            button.btn.btn-default(type='button', data-toggle='tooltip', data-placement='left', title='', data-original-title='ツールチップだよ left') Left
+            button.btn.btn-default(type='button', data-toggle='tooltip', data-placement='top', title='', data-original-title='ツールチップだよ top') Top
+            button.btn.btn-default(type='button', data-toggle='tooltip', data-placement='bottom', title='', data-original-title='ツールチップだよ bottom') Bottom
+            button.btn.btn-default(type='button', data-toggle='tooltip', data-placement='right', title='', data-original-title='ツールチップだよ right') Right

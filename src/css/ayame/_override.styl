@@ -1,0 +1,104 @@
+// for Japanese text
+html
+  font-size: $font-size-base
+  vertical-rhythm: true
+  @media only screen and (min-width : $screen-tablet)
+    font-size: @font-size * 1.125
+body
+  letter-spacing: 0.01em
+  text-align: justify
+  font-feature-settings: 'pkna'
+  word-wrap: break-word
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  font-size: 1rem
+  vertical-rhythm: true
+  @media only screen and (min-width : $screen-tablet)
+    line-height: @line-height * 1.125
+// animation
+a
+  transition-timing-function: ease
+  transition-duration: 0.3s
+  transition-property: all
+// buttons
+.btn
+  &:active,
+	&.active
+    box-shadow: none
+  & + .btn
+    margin-left: 0.5rem
+// navbar
+.navbar-nav
+  @media (min-width: $grid-float-breakpoint)
+    > li
+      > a
+        padding-top: ($navbar-padding-vertical / 4)
+        padding-bottom: ($navbar-padding-vertical / 4)
+        margin-top: ($navbar-padding-vertical / 4 * 3)
+        margin-bottom: ($navbar-padding-vertical / 4 * 3)
+        border-radius: $border-radius-large
+      > .dropdown-menu
+        margin-top: (($navbar-padding-vertical * -1) / 4 * 3)
+    > li:not(:last-child)
+      margin-right: ($navbar-padding-horizontal / 3)
+.navbar-brand
+  margin-right: ($navbar-padding-horizontal / 3)
+  font-size: $font-size-large
+// label
+.label
+  vertical-align: 2px
+input[type="radio"], input[type="checkbox"]
+  margin: 10px 0 0
+// フォント指定
+.i-love-yu
+  font-family: $font-family-sans-serif-yu
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6
+  vertical-rhythm: true
+  rhythmical-margin: 0 0 1 0
+  font-weight: bold
+  @media only screen and (min-width : $screen-tablet)
+    line-height: @line-height * 1.125
+p
+  vertical-rhythm: true
+  rhythmical-margin: 0 0 1 0
+em
+  border-bottom: 1px dotted @color
+  font-style: normal
+blockquote
+  background: $panel-bg
+  color: $gray-lighter
+  border: 1px solid darken($brand-primary, 33%)
+  border-left: rhythmical-space(0.25) solid darken($brand-primary, 33%)
+  border-radius: 5px
+  rhythmical-padding: 0.5 0.5 0.5 0.5
+  rhythmical-margin: 0 0.5 0.5 0.5
+  @media only screen and (min-width : $screen-tablet)
+    rhythmical-margin: 0 1 0.5 1
+  &.pull-right
+    border: 1px solid darken($brand-primary, 33%)
+    border-right: rhythmical-space(0.25) solid darken($brand-primary, 33%)
+    rhythmical-padding: 0.5 0.5 0.5 0.5
+    rhythmical-margin: 0 0.5 0.5 0.5
+.jumbotron p
+  line-height: 1.5
+.table
+  color: $gray-darker
+.modal
+  .close
+    color: $gray-lighter
+    opacity: 0.6
+.text-primary
+  color: lighten($brand-primary, 25%)
+  font-weight: bold
+.text-success
+  color: lighten($brand-success, 25%)
+  font-weight: bold
+.text-info
+  color: lighten($brand-info, 25%)
+  font-weight: bold
+.text-warning
+  color: lighten($brand-warning, 25%)
+  font-weight: bold
+.text-danger
+  color: lighten($brand-danger, 25%)
+  font-weight: bold

@@ -1,0 +1,12 @@
+block variables
+doctype html
+html(lang=`${pageLang||settings.defaultLang}`)
+  head(prefix=`og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#  ${pageOgpType||settings.defaultOgpType}: http://ogp.me/ns/${pageOgpType||settings.defaultOgpType}#`)
+    include /modules/_meta
+    include /modules/_css
+  body
+    include /layouts/_header
+
+    block content
+
+    include /modules/_js

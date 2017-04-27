@@ -1,0 +1,37 @@
+header
+  .navbar.navbar-default.navbar-fixed-top
+    .container
+      .navbar-header
+        a.navbar-brand(href='/') Ayame
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+      #navbar-main.navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li(class=`${pageTitle == 'Top' ? 'active' : '' }`)
+            a(href='/') Top
+          li.dropdown(class=`${pageTitle.match(/Demo/) ? 'active' : '' }`)
+            a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+              | Demo
+              span.caret
+            ul.dropdown-menu(role='menu')
+              li
+                a(href='./bootstrap-ja.html') Japanese Page
+              //- li
+              //-   a(href='./bootstrap.html') English Page
+          li
+            a(href='//github.com/AquiTCD/Ayame/releases') Download
+          li
+            a(href='//github.com/windyakin/Honoka/wiki') Wiki(Honoka)
+        div.nav.navbar-form.navbar-right(class=`${pageTitle != 'Top' ? 'invisible' : '' }`)
+          .form-group
+            a.btn.btn-twitter(href='https://twitter.com/intent/tweet?url=http://honokak.osaka/&text=Honoka%20%2d%20%e6%97%a5%e6%9c%ac%e8%aa%9e%e3%82%82%e7%be%8e%e3%81%97%e3%81%8f%e8%a1%a8%e7%a4%ba%e3%81%a7%e3%81%8d%e3%82%8bBootstrap%e3%83%86%e3%83%bc%e3%83%9e')
+              i.fa.fa-twitter.fa-lg
+              |  Tweet
+            a.btn.btn-facebook(href='http://www.facebook.com/sharer.php?u=http://honokak.osaka/')
+              i.fa.fa-facebook.fa-lg
+              |  Share
+            a.btn.btn-hatebu(href="javascript:window.open('http://b.hatena.ne.jp/add?mode=confirm&is_bm=1&title='+escape(document.title)+'&url='+escape(location.href),%20'_blank',%20'width=520,height=600,resizable=1,scrollbars=1');undefined;")
+              i.fa.fa-hatebu.fa-lg
+              |  Bookmark
