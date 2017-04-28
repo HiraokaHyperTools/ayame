@@ -168,7 +168,7 @@ gulp.task('build', (callback) => {
   runSequence(beforeBuild, buildTasks, callback);
 });
 gulp.task('make', () => {
-  return gulp.src(['./build/**/*', '!./build/**/*.map', '!./build/**/plugins/'], {base: buildDir})
+  return gulp.src(['./build/**/*', '!./build/**/*.map', '!./build/**/plugins/*'], {base: buildDir})
   .pipe(gulp.dest(distDir))
 });
 gulp.task('deploy', (callback) => {
