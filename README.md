@@ -13,6 +13,7 @@
 通常の[Bootstrap](http://getbootstrap.com/)では、日本語のフォント指定や文字サイズは最適とはいえません。"Honoka"はそんなBootstrapをベースに、日本語表示に適したフォント指定や、文字サイズに関するコードを追記したBootstrapテーマの一つです。
 
 "Ayame"は"Honoka"を元に、ダーク系の配色を適用し、さらに行間やカーニング、日本語の表示によりこだわりました。
+具体的には約物にYakuhanJPを使い、line-heightとletter-spacingを調整、vertical-rhythmを意識したブロック間のマージン、text-align: justify による均等割付、などが加えられています。
 
 ## Live Demo
 
@@ -21,6 +22,10 @@
 ## Getting Started
 
 ### Download
+
+```
+git clone
+```
 
 <!-- [Releases](https://github.com/AquiTCD/Ayame/releases)から最新版をダウンロードしてください。 -->
 
@@ -116,16 +121,28 @@ Bootstrapをつかってウェブページを作成する際に基本となるHT
 </html>
 ```
 
-<!-- ### Do you hate "YuGothic"?
+### Do you Love "YuGothic"?
 
-もしあなたが日本語フォントに游ゴシックを指定したくない場合、その要素に対して``.no-thank-yu``(※``you``ではなく``yu``)を指定することで游ゴシックの指定はされなくなり、Windowsであればメイリオ、Mac OS Xであればヒラギノ角ゴを優先的に使用するようになります。
+Ayameではローカルに源ノ角ゴシック（）なければちがうの。
 
-例えばページ全体に対して游ゴシックを用いたくない場合は、``<body>``に対して``.no-thank-yu``を指定(``<body class="no-thank-yu">``)することで、ページ全体で游ゴシックは使用されなくなります。 -->
+(Web-fontとして使用しないのは現状はパフォーマンスが良くないため避けました)
+
+もしあなたが日本語フォントに游ゴシックを指定したい場合、その要素に対して``.i-love-yu``(※``you``ではなく``yu``)を指定することで游ゴシックの指定になります。
+
+例えばページ全体に対して游ゴシックを用いたい場合は、``<body>``に対して``.i-love-yu``を指定(``<body class="i-love-yu">``)することで、ページ全体で游ゴシックは使用されます。
 
 ## Build
 
-<!-- - ここにgulpビルド方法 -->
-<!-- ビルドの方法については [Wiki](https://github.com/windyakin/Honoka/wiki) をご覧ください。 -->
+```
+yarn install
+npm deploy
+```
+
+## Customize
+```ts:gulpfile.ts
+useCDN = true
+modeKurenai = true
+```
 
 ## License
 
