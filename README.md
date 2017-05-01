@@ -2,7 +2,7 @@
 
 [![The MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-[http://honokak.osaka/](http://honokak.osaka/)
+[http://ayame.solunita.net/](http://ayame.solunita.net/)
 
 [![Honoka](docs/assets/img/sample.png)](http://honokak.osaka/)
 
@@ -23,15 +23,21 @@
 
 ### Download
 
-```
-git clone
-```
+[Releases](https://github.com/AquiTCD/Ayame/releases)から最新版をダウンロードしてください。
 
-<!-- [Releases](https://github.com/AquiTCD/Ayame/releases)から最新版をダウンロードしてください。 -->
+#### 自身でカスタマイズしたり、ビルドする場合。
+(Requirement: node.js, gulp)
+
+```
+git clone https://github.com/AquiTCD/Ayame.git
+cd Ayame
+yarn install #or $npm install
+npm run deploy #or npm start
+```
 
 ## Usage
 
-Ayameは単なるBootstrapテーマにしか過ぎないため、基本的な使い方は本家Bootstrapとほとんど変わりません。よって以下に書くことは[本家Bootstrap](http://getbootstrap.com/getting-started/)からの引用、もしくはその一部を変更したものです。用意されたCSSクラスやコンポーネントなど、より詳細な使い方のドキュメントは本家Bootstrapの各種リファレンスページをご覧になることを推奨します。
+Ayameは単なるBootstrapテーマにしか過ぎないため、基本的な使い方は"Honoka"に順じ、本家Bootstrapとほとんど変わりません。よって以下に書くことは[本家Bootstrap](http://getbootstrap.com/getting-started/)からの引用、もしくはその一部を変更したものです。用意されたCSSクラスやコンポーネントなど、より詳細な使い方のドキュメントは本家Bootstrapの各種リファレンスページをご覧になることを推奨します。
 
  * [CSS](http://getbootstrap.com/css/)
  * [Components](http://getbootstrap.com/components/)
@@ -123,13 +129,11 @@ Bootstrapをつかってウェブページを作成する際に基本となるHT
 
 ### Do you Love "YuGothic"?
 
-Ayameではローカルに源ノ角ゴシック（）なければちがうの。
+Ayameではローカルに源ノ角ゴシック（≒Noto Sans CJK JP）があれば優先的に使用します。存在しない場合は使用環境に準拠した読み易いフォントが使われます。(Web-fontとして使用しないのは現状はパフォーマンスが良くないため避けました）
+もしあなたが日本語フォントに游ゴシックを指定したい場合、その要素に対して`.i-love-yu`(※`you`ではなく`yu`)を指定することで游ゴシックの指定になります。
 
-(Web-fontとして使用しないのは現状はパフォーマンスが良くないため避けました)
-
-もしあなたが日本語フォントに游ゴシックを指定したい場合、その要素に対して``.i-love-yu``(※``you``ではなく``yu``)を指定することで游ゴシックの指定になります。
-
-例えばページ全体に対して游ゴシックを用いたい場合は、``<body>``に対して``.i-love-yu``を指定(``<body class="i-love-yu">``)することで、ページ全体で游ゴシックは使用されます。
+例えばページ全体に対して游ゴシックを用いたい場合は、`<body>`に対して`.i-love-yu`を指定(`<body class="i-love-yu">`)することで、ページ全体で游ゴシックが使用されます。
+またAyameでは游ゴシックを使う際もOSやブラウザによる際をなるべく吸収するように設定されています。
 
 ## Build
 
@@ -138,11 +142,18 @@ yarn install
 npm deploy
 ```
 
-## Customize
-```ts:gulpfile.ts
+## Customize Tips
+`gulpfile.ts`中の以下の設定で簡単に切り変えられる設定があります。
+```ts:
 useCDN = true
 modeKurenai = true
 ```
+
+### Use CDN
+`bootstrap.min.css`(または`bootstrap.css`)以外をCDNを使いたい場合、`useCDN = true`にしてください。
+
+### 紅モード
+`modeKurenai = true`にするとプライマリーカラーが紅色になります。それにともない他の色も若干の調整が加わります。赤系の色が好きな人にお勧めです。
 
 ## License
 
@@ -150,8 +161,13 @@ modeKurenai = true
 
 ## Author of "Honoka"
 
- * windyakin ([windyakin.net](http://windyakin.net/))
+- windyakin ([windyakin.net](http://windyakin.net/))
 
 ## Editor of "Ayame"
 
- * AquiTCD ([Trial and Spiral](http://blog.solunita.net/))
+- AquiTCD ([Trial and Spiral](http://blog.solunita.net/))
+
+## Fonts
+
+- [Yaku Han JP](https://qrac.github.io/yakuhanjp/)
+- [Google Noto Fonts](https://www.google.com/get/noto/)
