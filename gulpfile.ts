@@ -17,6 +17,7 @@ import replace       = require('gulp-replace');
 import minifyHtml    = require('gulp-minify-html');
 import cssmin        = require('gulp-cssmin');
 import uglify        = require('gulp-uglify');
+import rename        = require('gulp-rename');
 import data          = require('gulp-data');
 import plumber       = require('gulp-plumber');
 import runSequence   = require('run-sequence');
@@ -87,7 +88,6 @@ gulp.task('css', () => {
                '$mode-kurenai': modeKurenai
              }
     })))
-    .pipe(gulpIf(isProduction, cssmin()))
     .pipe(gulpIf(!isProduction, sourcemaps.write('.', {
       addComment: true,
       sourceRoot: './src'
@@ -168,15 +168,22 @@ gulp.task('build', (callback) => {
   runSequence(beforeBuild, buildTasks, callback);
 });
 gulp.task('make', () => {
-  return gulp.src(['./build/**/*', '!./build/**/*.map', '!./build/**/plugins/*'], {base: buildDir})
+  return gulp.src(['./build/css/*.css', './build/font/*', './build/img/*', './build/js/*.js', '!./build/**/*.map'], {base: buildDir})
   .pipe(gulp.dest(distDir))
 });
-gulp.task('deploy', (callback) => {
-  runSequence('clean', 'build', 'make', 'msg', callback);
-});
+gulp.task('compress', () => {
+  return gulp.src(`${build.css}/bootstrap.css`)
+  .pipe(cssmin())
+  .pipe(rename({extname: '.min.css'}))
+  .pipe(gulp.dest(`${distDir}/css`));
+})
 gulp.task('msg', () => {
   return console.log("👍  Deployed, YEY!")
 });
+gulp.task('deploy', (callback) => {
+  runSequence('clean', 'build', 'make', 'compress', 'msg', callback);
+});
+
 gulp.task('default', ['build'], () => {
  return gulp.start(['watch', 'server'])
 });
