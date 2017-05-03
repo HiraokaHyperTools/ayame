@@ -4,7 +4,7 @@
 
 [http://ayame.solunita.net/](http://ayame.solunita.net/)
 
-[![Honoka](docs/assets/img/sample.png)](http://honokak.osaka/)
+[![Honoka](docs/img/sample.png)](http://ayame.solunita.net/)
 
 "Ayame" は"[Honoka](https://github.com/windyakin/Honoka)"を元に作られた、日本語を美しく表示することに特化したBootstrapテーマです。
 
