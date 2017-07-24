@@ -26,12 +26,16 @@
     "dist/css/bootstrap.css"
   ],
   "ignore": [
-    "/.*",
-    "dist/assets",
-    "dist/*.html",
-    "node_modules",
-    "src",
-    "CNAME"
+    "/bs-config.js",
+    "/gulpfile.ts",
+    "/tsconfig.json",
+    "/webpack.config.*.js",
+    "/yarn.lock",
+    "/dist/assets",
+    "/dist/*.html",
+    "/node_modules",
+    "/src",
+    "/CNAME"
   ],
   "dependencies": {},
   "devDependencies": {

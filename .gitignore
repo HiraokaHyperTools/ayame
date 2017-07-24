@@ -35,5 +35,6 @@ vendor/bundle/
 # addition
 build/
 sftpconfig.json
-dist/
 ftpconfig.json
+/.bower.json
+/package-lock.json
