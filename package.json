@@ -19,7 +19,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
-    "deploy": "NODE_ENV=production gulp deploy",
+    "deploy": "set NODE_ENV=production && gulp deploy",
     "clean": "gulp clean",
     "build": "gulp build",
     "server": "gulp server",
@@ -69,8 +69,8 @@
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
-    "@types/gulp": "^4.0.2",
-    "@types/jquery": "^2.0.41",
+    "@types/gulp": "^3.8.33",
+    "@types/jquery": "^3.2.9",
     "bootstrap-styl": "^5.0.8",
     "global": "^4.3.1",
     "jquery": "^3.2.1",

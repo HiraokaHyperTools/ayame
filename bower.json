@@ -1,0 +1,48 @@
+{
+  "name": "Ayame",
+  "description": "Ayame is a fork of Honoka which is a Bootstrap theme.",
+  "keywords": [
+    "css",
+    "sass",
+    "bootstrap",
+    "japanese",
+    "theme",
+    "responsive",
+    "front-end",
+    "framework",
+    "web",
+    "touhou"
+  ],
+  "author": "AquiTCD and kenjiuno",
+  "homepage": "https://github.com/HiraokaHyperTools/Ayame",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/HiraokaHyperTools/Ayame.git"
+  },
+  "license": "MIT",
+  "moduleType": "globals",
+  "main": [
+    "src/css/bootstrap.min.css"
+  ],
+  "ignore": [
+    "/.*",
+    "dist/assets",
+    "dist/*.html",
+    "node_modules",
+    "src",
+    "CNAME"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "3.3.7",
+    "bootstrap-sass": "3.3.7"
+  },
+  "exportsOverride": {
+    "bootstrap-sass": {},
+    "bootstrap": {
+      "js": "dist/js/bootstrap.**js",
+      "fonts": "dist/fonts/**/*"
+    },
+    "jquery": {}
+  }
+}

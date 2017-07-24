@@ -52,7 +52,7 @@ const build = {
   font: `${buildDir}/fonts`,
 };
 const distDir     = './dist';
-const buildTasks  = ['html', 'css', 'js', 'img']
+const buildTasks  = ['html', 'css', 'js', 'img', 'font']
 if (useCDN) {
   var beforeBuild   = ['assets'];
   var webpackConfig  = require('./webpack.config.cdn.js');
@@ -168,7 +168,7 @@ gulp.task('build', (callback) => {
   runSequence(beforeBuild, buildTasks, callback);
 });
 gulp.task('make', () => {
-  return gulp.src(['./build/css/*.css', './build/font/*', './build/img/*', './build/js/*.js', '!./build/**/*.map'], {base: buildDir})
+  return gulp.src(['./build/css/*.css', './build/fonts/*', './build/img/*', './build/js/*.js', '!./build/**/*.map'], {base: buildDir})
   .pipe(gulp.dest(distDir))
 });
 gulp.task('compress', () => {
