@@ -100,6 +100,7 @@ gulp.task('js', () => {
   return gulp.src(src.js)
     .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('js: <%= error.message %>')})))
     .pipe(webpackStream(webpackConfig, webpack))
+    .pipe(rename({extname: '.min.js'}))
     .pipe(gulp.dest(build.js));
 });
 // Image
