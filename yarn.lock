@@ -19,17 +19,19 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@types/gulp@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@types/gulp/-/gulp-4.0.2.tgz#71133c16a3c6f5ed17ee8094694be7824ed7d6f3"
+"@types/gulp@^3.8.33":
+  version "3.8.36"
+  resolved "https://registry.yarnpkg.com/@types/gulp/-/gulp-3.8.36.tgz#11eaf583bf0534669b4ffa9bfed51557faa00a4c"
   dependencies:
     "@types/node" "*"
     "@types/orchestrator" "*"
     "@types/vinyl" "*"
 
-"@types/jquery@^2.0.41":
-  version "2.0.41"
-  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-2.0.41.tgz#b87ba051011f99edbe586d8f97282e7786e01a6d"
+"@types/jquery@^3.2.9":
+  version "3.3.30"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.30.tgz#af4ad612d86d954d74664b2b0ec337a251fddb5b"
+  dependencies:
+    "@types/sizzle" "*"
 
 "@types/node@*":
   version "7.0.14"
@@ -44,6 +46,10 @@
 "@types/q@^0":
   version "0.0.34"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.34.tgz#e5d3a54e7a56309d904cdf1dc34f61ac595fae2e"
+
+"@types/sizzle@*":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@types/sizzle/-/sizzle-2.3.2.tgz#a811b8c18e2babab7d542b3365887ae2e4d9de47"
 
 "@types/vinyl@*":
   version "2.0.0"
@@ -4182,8 +4188,8 @@ lodash.defaults@~2.4.1:
     lodash.keys "~2.4.1"
 
 lodash.defaultsdeep@^4.3.1:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/lodash.defaultsdeep/-/lodash.defaultsdeep-4.6.0.tgz#bec1024f85b1bd96cbea405b23c14ad6443a6f81"
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/lodash.defaultsdeep/-/lodash.defaultsdeep-4.6.1.tgz#512e9bd721d272d94e3d3a63653fa17516741ca6"
 
 lodash.escape@^3.0.0:
   version "3.2.0"
