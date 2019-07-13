@@ -81,7 +81,8 @@
   "resolutions": {
     "lodash": "4.17.14",
     "minimatch": "3.0.4",
-    "braces": "2.3.2"
+    "braces": "2.3.2",
+    "clean-css": "4.2.1"
   },
   "files": [
     "dist",
