@@ -78,6 +78,10 @@
     "npm-check-updates": "^2.10.0",
     "yakuhanjp": "^2.0.0"
   },
+  "resolutions": {
+    "lodash": "4.17.14",
+    "minimatch": "3.0.4"
+  },
   "files": [
     "dist",
     "styles/**/*.styl",
