@@ -18,18 +18,16 @@ module.exports = {
     rules: [{
       test: /\.ts$/,
       use: ['ts-loader']
-    },{
+    }, {
       test: /\.js$/,
       use: 'babel-loader',
       exclude: /node_modules/
     }]
   },
+  optimization: {
+    minimize: true
+  },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      output: {
-        comments: saveLicense
-      }
-    })
   ],
   devtool: 'source-map'
 }

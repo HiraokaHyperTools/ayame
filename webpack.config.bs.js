@@ -16,31 +16,29 @@ module.exports = {
     extensions: ['.ts', '.webpack.js', '.web.js', '.js']
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.ts$/,
         use: ['ts-loader']
-      },{
+      },
+      {
         test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/
-      },{
+      },
+      {
         test: require.resolve('jquery'),
-        use: [{
-            loader: 'expose-loader',
-            options: 'jQuery'
-        },{
-            loader: 'expose-loader',
-            options: '$'
-        }]
+        loader: 'expose-loader',
+        options: {
+          exposes: ['jQuery', '$']
+        }
       }
     ]
   },
+  optimization: {
+    minimize: true
+  },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      output: {
-        comments: saveLicense
-      }
-    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
