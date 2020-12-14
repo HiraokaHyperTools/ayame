@@ -156,10 +156,10 @@ function reload() {
 }
 
 function watchTask(cb) {
-  gulp.watch(src.html, () => gulp.series(html, reload));
-  gulp.watch(src.css, () => gulp.series(css, reload));
-  gulp.watch(src.js, () => gulp.series(js, reload));
-  gulp.watch(src.img, () => gulp.series(img, reload));
+  gulp.watch(src.html, gulp.series(html, reload));
+  gulp.watch(src.css, gulp.series(css, reload));
+  gulp.watch(src.js, gulp.series(js, reload));
+  gulp.watch(src.img, gulp.series(img, reload));
 }
 // Build and Deploy
 // ------------------------------------------------------------
