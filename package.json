@@ -78,8 +78,10 @@
     "yakuhanjp": "^3.3.1"
   },
   "resolutions": {
-    "pug": "3.0.1",
-    "pug-code-gen": "2.0.3"
+    "pug": "3.0.2",
+    "pug-code-gen": "2.0.3",
+    "node-notifier": "9.0.0",
+    "clean-css": "5.1.1"
   },
   "files": [
     "dist",
