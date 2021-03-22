@@ -38,6 +38,7 @@
     "babel-preset-es2015": "^6.24.1",
     "bootstrap-styl": "^5.0.8",
     "browser-sync": "^2.26.14",
+    "clean-css": "5.1.2",
     "del": "^6.0.0",
     "expose-loader": "^2.0.0",
     "global": "^4.3.1",
@@ -65,23 +66,24 @@
     "kouto-swiss": "^1.1.0",
     "lodash": "^4.17.21",
     "minimatch": "^3.0.4",
-    "node-notifier": "9.0.0",
-    "npm-check-updates": "^11.1.10",
+    "node-notifier": "9.0.1",
+    "npm-check-updates": "^11.3.0",
     "run-sequence": "^2.2.1",
-    "ts-loader": "^8.0.17",
+    "ts-loader": "^8.0.18",
     "ts-node": "^9.1.1",
-    "typescript": "^4.2.2",
+    "typescript": "^4.2.3",
     "typescript-require": "^0.3.0",
     "uglify-save-license": "^0.4.1",
-    "webpack": "^5.24.3",
+    "webpack": "^5.27.1",
     "webpack-stream": "^6.1.2",
-    "yakuhanjp": "^3.3.1"
+    "yakuhanjp": "^3.4.1"
   },
   "resolutions": {
     "pug": "3.0.2",
     "pug-code-gen": "2.0.3",
-    "node-notifier": "9.0.0",
-    "clean-css": "5.1.1"
+    "node-notifier": "9.0.1",
+    "clean-css": "5.1.2",
+    "is-svg": "4.2.2"
   },
   "files": [
     "dist",
