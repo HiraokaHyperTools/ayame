@@ -68,14 +68,14 @@
     "lodash": "^4.17.21",
     "minimatch": "^3.0.4",
     "node-notifier": "9.0.1",
-    "npm-check-updates": "^11.5.10",
+    "npm-check-updates": "^11.5.11",
     "run-sequence": "^2.2.1",
     "ts-loader": "^9.1.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4",
     "typescript-require": "^0.3.0",
     "uglify-save-license": "^0.4.1",
-    "webpack": "^5.36.2",
+    "webpack": "^5.37.0",
     "webpack-stream": "^6.1.2",
     "yakuhanjp": "^3.4.1"
   },
@@ -84,7 +84,8 @@
     "pug-code-gen": "2.0.3",
     "node-notifier": "9.0.1",
     "clean-css": "5.1.2",
-    "is-svg": "4.2.2"
+    "is-svg": "4.2.2",
+    "postcss": "8.2.10"
   },
   "files": [
     "dist",
