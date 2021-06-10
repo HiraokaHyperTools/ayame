@@ -69,9 +69,9 @@
     "minimatch": "^3.0.4",
     "node-notifier": "10.0.0",
     "npm-check-updates": "^11.6.0",
-    "postcss": "8.3.0",
+    "postcss": "8.3.1",
     "run-sequence": "^2.2.1",
-    "ts-loader": "^9.2.2",
+    "ts-loader": "^9.2.3",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.2",
     "typescript-require": "^0.3.0",
@@ -87,7 +87,9 @@
     "clean-css": "5.1.2",
     "is-svg": "4.3.1",
     "postcss": "8.3.0",
-    "ws": "7.4.6"
+    "ws": "7.4.6",
+    "trim-newlines": "3.0.1",
+    "css-what": "5.0.1"
   },
   "files": [
     "dist",
