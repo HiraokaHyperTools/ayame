@@ -89,7 +89,11 @@
     "postcss": "8.3.0",
     "ws": "7.4.6",
     "trim-newlines": "3.0.1",
-    "css-what": "5.0.1"
+    "css-what": "5.0.1",
+    "braces": "2.3.1",
+    "lodash.template": "4.5.0",
+    "normalize-url": "4.5.1",
+    "glob-parent": "5.1.2"
   },
   "files": [
     "dist",
