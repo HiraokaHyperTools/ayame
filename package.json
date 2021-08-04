@@ -100,7 +100,8 @@
     "normalize-url": "4.5.1",
     "glob-parent": "5.1.2",
     "lodash": "4.17.21",
-    "tar": "6.1.2"
+    "tar": "6.1.2",
+    "color-string": "1.5.5"
   },
   "files": [
     "dist",
