@@ -30,7 +30,8 @@ const withoutPartial = '!./src/**/_*';
 const srcDir = './src';
 const src = {
   any: `${srcDir}/**/*`,
-  html: `${srcDir}/html/**/*.{html,pug}`,
+  html: `${srcDir}/html/**/*.{html}`,
+  pug: `${srcDir}/html/**/*.{pug}`,
   css: `${srcDir}/css/**/*.{css,styl}`,
   js: `${srcDir}/js/**/*.{js,ts}`,
   img: `${srcDir}/img/**/*.{png,jpg,svg,gif}`,
@@ -44,6 +45,7 @@ const buildDir = './build';
 const build = {
   any: `${buildDir}/**/*`,
   html: `${buildDir}`,
+  pug: `${buildDir}`,
   css: `${buildDir}/css`,
   js: `${buildDir}/js`,
   img: `${buildDir}/img`,
@@ -51,7 +53,7 @@ const build = {
 };
 const distDir = './dist';
 const fontTask = gulp.series(copy_font_files, font);
-const buildTasks = gulp.series(html, css, js, img, fontTask);
+const buildTasks = gulp.series(html, buildPug, css, js, img, fontTask);
 const assets = gulp.series(assets_css, assets_js, assets_img);
 if (useCDN) {
   var beforeBuild = gulp.series(assets);
@@ -68,13 +70,22 @@ function html() {
   return gulp.src([src.html, withoutPartial])
     .pipe(gulpIf(!isProduction, plumber({ errorHandler: notify.onError('html: <%= error.message %>') })))
     .pipe(data(function (file) { return { settings: require('./src/data/settings.json') } }))
-    .pipe(gulpIf(/\.pug/, pug({
-      basedir: './src/html/',
-      pretty: true,
-      locals: { 'useCDN': useCDN }
-    })))
     .pipe(gulpIf(isProduction, minifyHtml()))
     .pipe(gulp.dest(build.html));
+}
+function buildPug() {
+  return gulp.src([src.pug, withoutPartial])
+    .pipe(gulpIf(!isProduction, plumber({ errorHandler: notify.onError('html: <%= error.message %>') })))
+    .pipe(data(function (file) { return { settings: require('./src/data/settings.json') } }))
+    .pipe(pug({
+      locals: {
+        useCDN: useCDN,
+        pretty: true,
+      }
+    })
+    )
+    .pipe(gulpIf(isProduction, minifyHtml()))
+    .pipe(gulp.dest(build.pug));
 }
 // CSS
 // ------------------------------------------------------------
@@ -157,6 +168,7 @@ function reload() {
 
 function watchTask(cb) {
   gulp.watch(src.html, gulp.series(html, reload));
+  gulp.watch(src.pug, gulp.series(buildPug, reload));
   gulp.watch(src.css, gulp.series(css, reload));
   gulp.watch(src.js, gulp.series(js, reload));
   gulp.watch(src.img, gulp.series(img, reload));
