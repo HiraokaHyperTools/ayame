@@ -88,7 +88,15 @@
     "yakuhanjp": "^3.4.1"
   },
   "resolutions": {
-    "set-value": "4.0.1"
+    "set-value": "4.0.1",
+    "axios": "0.21.2",
+    "color-string": "1.5.5",
+    "trim-newlines": "3.0.1",
+    "glob-parent": "5.1.2",
+    "lodash.template": "4.5.0",
+    "braces": "2.3.1",
+    "clean-css": "4.1.11",
+    "lodash": "4.17.21"
   },
   "files": [
     "dist",
