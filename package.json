@@ -104,7 +104,8 @@
     "nanoid": "3.1.31",
     "ansi-regex": "5.0.1",
     "postcss": "8.2.13",
-    "engine.io": "4.1.2"
+    "engine.io": "4.1.2",
+    "minimist": "1.2.6"
   },
   "files": [
     "dist",
