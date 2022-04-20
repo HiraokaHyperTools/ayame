@@ -106,7 +106,8 @@
     "postcss": "8.2.13",
     "engine.io": "4.1.2",
     "minimist": "1.2.6",
-    "json-schema": "0.4.0"
+    "json-schema": "0.4.0",
+    "async": "2.6.4"
   },
   "files": [
     "dist",
