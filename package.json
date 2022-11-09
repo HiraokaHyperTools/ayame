@@ -83,7 +83,18 @@
   },
   "resolutions": {
     "gulp-image": "6.2.1",
-    "del": "6.1.1"
+    "del": "6.1.1",
+    "minimist": "1.2.7",
+    "lodash": "4.17.21",
+    "ssh2": "1.11.0",
+    "nth-check": "2.1.1",
+    "semver-regex": "4.0.5",
+    "trim-newlines": "4.0.2",
+    "glob-parent": "6.0.2",
+    "color-string": "1.9.1",
+    "braces": "3.0.2",
+    "clean-css": "5.3.1"
+
   },
   "files": [
     "dist",
