@@ -30,8 +30,8 @@ const withoutPartial = '!./src/**/_*';
 const srcDir = './src';
 const src = {
   any: `${srcDir}/**/*`,
-  html: `${srcDir}/html/**/*.{html}`,
-  pug: `${srcDir}/html/**/*.{pug}`,
+  html: `${srcDir}/html/**/*.html`,
+  pug: `${srcDir}/html/**/*.pug`,
   css: `${srcDir}/css/**/*.{css,styl}`,
   js: `${srcDir}/js/**/*.{js,ts}`,
   img: `${srcDir}/img/**/*.{png,jpg,svg,gif}`,
@@ -52,14 +52,14 @@ const build = {
   font: `${buildDir}/fonts`,
 };
 const distDir = './dist';
-const fontTask = gulp.series(copy_font_files, font);
-const buildTasks = gulp.series(html, buildPug, css, js, img, fontTask);
+const font_task = gulp.series(copy_font_files, font);
+const build_tasks = gulp.series(html, pug_to_html, css, js, img, font_task);
 const assets = gulp.series(assets_css, assets_js, assets_img);
 if (useCDN) {
   var beforeBuild = gulp.series(assets);
   var webpackConfig = require('./webpack.config.cdn.js');
 } else {
-  var beforeBuild = gulp.series(fontTask, assets);
+  var beforeBuild = gulp.series(font_task, assets);
   var webpackConfig = require('./webpack.config.bs.js');
 }
 webpackConfig.mode = isProduction ? "production" : "development";
@@ -73,7 +73,7 @@ function html() {
     .pipe(gulpIf(isProduction, minifyHtml()))
     .pipe(gulp.dest(build.html));
 }
-function buildPug() {
+function pug_to_html() {
   return gulp.src([src.pug, withoutPartial])
     .pipe(gulpIf(!isProduction, plumber({ errorHandler: notify.onError('html: <%= error.message %>') })))
     .pipe(data(function (file) { return { settings: require('./src/data/settings.json') } }))
@@ -81,7 +81,8 @@ function buildPug() {
       locals: {
         useCDN: useCDN,
         pretty: true,
-      }
+      },
+      basedir: path.resolve(__dirname, "src", "html"),
     })
     )
     .pipe(gulpIf(isProduction, minifyHtml()))
@@ -113,7 +114,6 @@ function js() {
   return gulp.src(src.js)
     .pipe(gulpIf(!isProduction, plumber({ errorHandler: notify.onError('js: <%= error.message %>') })))
     .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(rename({ extname: '.min.js' }))
     .pipe(gulp.dest(build.js));
 }
 // Image
@@ -166,9 +166,9 @@ function reload() {
   return browserSync.reload();
 }
 
-function watchTask(cb) {
+function watch_task(cb) {
   gulp.watch(src.html, gulp.series(html, reload));
-  gulp.watch(src.pug, gulp.series(buildPug, reload));
+  gulp.watch(src.pug, gulp.series(pug_to_html, reload));
   gulp.watch(src.css, gulp.series(css, reload));
   gulp.watch(src.js, gulp.series(js, reload));
   gulp.watch(src.img, gulp.series(img, reload));
@@ -178,7 +178,7 @@ function watchTask(cb) {
 function clean() {
   return del([`${buildDir}/*`, `${distDir}/*`]);
 }
-const buildTask = gulp.series(beforeBuild, buildTasks);
+const build_task = gulp.series(beforeBuild, build_tasks);
 function make() {
   return gulp.src(
     [
@@ -205,6 +205,6 @@ function msg(cb) {
   cb();
 }
 
-exports.build = buildTask;
-exports.deploy = gulp.series(clean, buildTask, make, compress, msg);
-exports.default = gulp.series(buildTask, gulp.parallel(watchTask, server));
+exports.build = build_task;
+exports.deploy = gulp.series(clean, build_task, make, compress, msg);
+exports.server = gulp.series(build_task, gulp.parallel(watch_task, server));
