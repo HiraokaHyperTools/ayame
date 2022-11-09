@@ -93,7 +93,8 @@
     "glob-parent": "6.0.2",
     "color-string": "1.9.1",
     "braces": "3.0.2",
-    "clean-css": "5.3.1"
+    "clean-css": "5.3.1",
+    "lodash.template": "4.5.0"
 
   },
   "files": [
