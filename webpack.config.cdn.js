@@ -4,7 +4,7 @@ var saveLicense = require('uglify-save-license');
 
 module.exports = {
   entry: {
-    app: './src/js/app.ts'
+    app: './src/js/app.js'
   },
   output: {
     path: path.join(__dirname, 'node_modules'),
@@ -12,13 +12,10 @@ module.exports = {
   },
   resolve: {
     modules: [path.join(__dirname, 'node_modules')],
-    extensions: ['.ts', '.webpack.js', '.web.js', '.js']
+    extensions: ['.webpack.js', '.web.js', '.js']
   },
   module: {
     rules: [{
-      test: /\.ts$/,
-      use: ['ts-loader']
-    }, {
       test: /\.js$/,
       use: 'babel-loader',
       exclude: /node_modules/
