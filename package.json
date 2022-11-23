@@ -94,8 +94,8 @@
     "color-string": "1.9.1",
     "braces": "3.0.2",
     "clean-css": "5.3.1",
-    "lodash.template": "4.5.0"
-
+    "lodash.template": "4.5.0",
+    "engine.io": "6.2.1"
   },
   "files": [
     "dist",
