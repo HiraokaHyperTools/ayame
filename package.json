@@ -76,7 +76,7 @@
     "tar": "6.1.12",
     "trim-newlines": "4.0.2",
     "uglify-save-license": "^0.4.1",
-    "webpack": "^5.52.1",
+    "webpack": "^5.76.0",
     "webpack-stream": "^7.0.0",
     "ws": "8.11.0",
     "yakuhanjp": "^3.4.1"
