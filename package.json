@@ -101,7 +101,8 @@
     "json5": "2.2.3",
     "debug": "3.1.0",
     "ua-parser-js": "1.0.33",
-    "http-cache-semantics": "4.1.1"
+    "http-cache-semantics": "4.1.1",
+    "yaml": "2.2.2"
   },
   "files": [
     "dist",
