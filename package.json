@@ -103,7 +103,9 @@
     "ua-parser-js": "1.0.33",
     "http-cache-semantics": "4.1.1",
     "yaml": "2.2.2",
-    "socket.io-parser": "4.2.3"
+    "socket.io-parser": "4.2.3",
+    "fast-xml-parser": "4.2.4",
+    "semver": "7.5.2"
   },
   "files": [
     "dist",
