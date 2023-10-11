@@ -106,7 +106,8 @@
     "socket.io-parser": "4.2.3",
     "fast-xml-parser": "4.2.5",
     "semver": "7.5.2",
-    "word-wrap": "npm:@aashutoshrathi/word-wrap@1.2.6"
+    "word-wrap": "npm:@aashutoshrathi/word-wrap@1.2.6",
+    "postcss": "8.4.31"
   },
   "files": [
     "dist",
