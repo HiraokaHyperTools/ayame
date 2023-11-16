@@ -78,6 +78,7 @@
     "uglify-save-license": "^0.4.1",
     "webpack": "^5.76.0",
     "webpack-stream": "^7.0.0",
+    "word-wrap": "npm:@aashutoshrathi/word-wrap@1.2.6",
     "ws": "8.11.0",
     "yakuhanjp": "^3.4.1"
   },
