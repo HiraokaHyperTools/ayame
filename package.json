@@ -1,6 +1,6 @@
 {
   "name": "ayame",
-  "version": "3.3.7-6",
+  "version": "3.3.7-7",
   "description": "Ayame is one of the fork theme of Honoka based on Bootstrap.",
   "author": "Aqui Tsuchida",
   "website": "http://ayame.solunita.net/",
@@ -109,7 +109,10 @@
     "semver": "7.5.2",
     "word-wrap": "npm:@aashutoshrathi/word-wrap@1.2.6",
     "postcss": "8.4.31",
-    "axios": "1.6.0"
+    "axios": "1.6.0",
+    "ip": "2.0.1",
+    "accord": "0.30.0",
+    "follow-redirects": "1.15.4"
   },
   "files": [
     "dist",
